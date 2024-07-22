@@ -10,22 +10,18 @@ public class CountingSort {
 
     }
     public static void sort(int arr[]){
-        int largest=Integer.MIN_VALUE;
-        for(int i=0;i<arr.length;i++){
-            largest=Math.max(largest,arr[i]);
+        int n=arr.length;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            if(arr[i]>max) max=arr[i];
         }
-        int count[]=new int[largest+1];// +1 esliye add hua hai , counting sort positive numbers pr lagta hai .aur ye 0 to largest taq jyga.
-        for(int i=0;i<arr.length;i++){
-            count[arr[i]]++;
+        int count[]=new int[max+1];
+
+        for(int i=0;i<n;i++){
+            int element=arr[i];
+            count[element]++;
         }
-        // sorting
-        int j=0;
-        for(int i=0;i<count.length;i++){
-            while(count[i]>0){
-                arr[j]=i;
-                j++;
-                count[i]--;
-            }
-        }
+        int k=0;
+
     }
 }

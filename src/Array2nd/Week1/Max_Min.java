@@ -1,4 +1,4 @@
-package Week1;
+package Array2nd.Week1;
 
 public class Max_Min {
     public static void main(String[] args) {

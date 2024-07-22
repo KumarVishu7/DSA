@@ -1,4 +1,4 @@
-package Week1;
+package Array2nd.Week1;
 
 import java.util.Arrays;
 
