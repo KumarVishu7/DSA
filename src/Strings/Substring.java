@@ -6,7 +6,10 @@ public class Substring {
        // System.out.println(sub(str,0,7));
 
         // but in java have already substring builtin function
-        System.out.println(str.substring(0,7));
+        for(int i=0;i<str.length();i++){
+            System.out.println(str.substring(0,1));
+
+        }
     }
     /*public static String sub(String str,int si,int ei){// si and ei are-->starting and ending index
         String substring="";
