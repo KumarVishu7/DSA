@@ -1,7 +1,7 @@
-package Hashing;
+package Hashing.Hashmaps;
 
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Two_Sum {
@@ -20,18 +20,18 @@ public class Two_Sum {
     public static int[] sum(int[] arr, int target) {
 
         // using hashmap
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> map = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {
             // Calculate the complement
             int complement = target - arr[i];
 
             // If the complement is found in the map, return the indices
-            if (map.containsKey(complement)) {
+            if (map.contains(complement)) {
                 return new int[]{complement, arr[i]};
 
             }
             // Otherwise, add the current number and its index to the map
-            map.put(arr[i], i);
+            map.add(arr[i]);
         }
         return new int[]{};
     }

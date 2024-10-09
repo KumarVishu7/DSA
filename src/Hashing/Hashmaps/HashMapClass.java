@@ -1,9 +1,6 @@
-package Hashing;
+package Hashing.Hashmaps;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Set;
-import java.util.TreeMap;
 
 public class HashMapClass {
     public static void main(String[] args) {
@@ -19,8 +16,8 @@ public class HashMapClass {
         System.out.println(hashMap);
 
         //get -> O(1)
-            int population=hashMap.get("India");// in get method write key
-            System.out.println(population);
+           /* int population=hashMap.get("India");// in get method write key
+            System.out.println(population);*/
 
        // System.out.println(hashMap.get("Sri Lanka"));// if value not exit then return null
 

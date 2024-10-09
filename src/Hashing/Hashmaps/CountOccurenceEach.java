@@ -1,7 +1,6 @@
-package Hashing;
+package Hashing.Hashmaps;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class CountOccurenceEach {
     public static void main(String[] args) {

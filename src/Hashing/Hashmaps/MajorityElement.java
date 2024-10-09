@@ -1,14 +1,13 @@
-package Hashing;
+package Hashing.Hashmaps;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class MajorityElement {
     public static void main(String[] args) {
         // find all element that appear more than (n/3) times;
 
-        int arr[]={1,2,2,4,5,7,2,3,2,3,2,3,4,4,3};
+        int arr[]={1,2,2,4,3,7,2,3,2,3,2,3,4,4,3};
         int n=arr.length;
        find(arr,n);
 
@@ -29,20 +28,20 @@ public class MajorityElement {
         }*/
 
         //find majority
-        for (Integer keys :map.keySet()) {
+       /* for (Integer keys :map.keySet()) {
             if (map.get(keys) >= arr.length/3) {
                 System.out.println(keys + " occures " + map.get(keys));
-            }else System.out.println("-1");
-        }
+            }
+        }*/
 
         //find maximum occurrence element
-       /* int max= Integer.MIN_VALUE;
+        int max= 0;
         for (Integer keys : map.keySet()) {
             if (map.get(keys) >= max) {
                 max=map.get(keys);
                 System.out.println(keys+" maximum occured element into the array count is : "+max);
             }
-        }*/
+        }
 
 
     }
