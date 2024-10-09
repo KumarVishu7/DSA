@@ -3,69 +3,86 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class Map {
+public class Map<K, V> {
     private int initialSize;
-    private List<Node>[] bucket;
+    private List<Node<K, V>>[] bucket;
 
 
     public Map(){
         this.initialSize = 16;
         this.bucket = new List[this.initialSize];
-        for (int i=0; i<bucket.length; i++) {
-            this.bucket[i] = new LinkedList<>();
-        }
     }
 
      /*public Map(int initialSize){
         this.initialSize = initialSize;
     }*/
 
-    public int hashCode(Integer key) {
-        return key.hashCode();
+    public int hashCode(K key) {
+        return Math.abs(key.hashCode());
     }
 
-    public boolean equals(Integer existing, Integer newValue) {
-        return Objects.equals(existing, newValue);
+    public boolean equals(K existing, K newKey) {
+        return Objects.equals(existing, newKey);
     }
 
-    public void put(Integer key, Integer value){
+    public void put(K key, V value){
         int hash = hashCode(key);
         int targetBucket = hash % bucket.length;
 
-        List<Node> list = bucket[targetBucket];
-        for (Node node : list) {
+        List<Node<K, V>> list = getListFromBucket(targetBucket);
+        for (Node<K, V> node : list) {
             if (equals(node.key, key)) {
                 node.value = value;
                 return;
             }
         }
-        list.add(new Node(key, value));
+        list.add(new Node<>(key, value));
+
     }
-    public Integer get(Integer key) {
+    public V get(K key) {
         int hash = hashCode(key);
         int targetBucket = hash % bucket.length;
-        List<Node> list = bucket[targetBucket];
-        for (Node node : list) {
+        List<Node<K, V>> list = getListFromBucket(targetBucket);
+        for (Node<K, V> node : list) {
             if (equals(node.key, key)) {
                 return node.value;
             }
         }
         throw new NullPointerException("Key not found");
     }
-
-    public static void main(String[] args) {
-        Map map = new Map();
-        map.put(3, 100);
-        map.put(4, 200);
-        map.put(5, 300);
-        System.out.println(map.get(5));
+    public boolean containsKey(K key){
+       int hash= hashCode(key);
+        int targetBucket = hash % bucket.length;
+        List<Node<K, V>> list = getListFromBucket(targetBucket);
+        for(Node<K, V> node : list){
+            if(equals(node.key, key)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    private class Node{
-        private Integer key;
-        private Integer value;
+    private List<Node<K, V>> getListFromBucket(int targetBucket) {
+        if (bucket[targetBucket] == null) {
+            return bucket[targetBucket] = new LinkedList<>();
+        }
+        return bucket[targetBucket];
+    }
 
-        public Node (Integer key, Integer value) {
+    public static void main(String[] args) {
+        Map<Integer, Integer> map = new Map<>();
+        map.put(1, 100);
+        map.put(2, 200);
+        map.put(3, 300);
+        System.out.println(map.get(2));
+        System.out.println(map.containsKey(5));
+    }
+
+    private static class Node<K, V> {
+        private K key;
+        private V value;
+
+        public Node (K key, V value) {
             this.key = key;
             this.value = value;
         }
