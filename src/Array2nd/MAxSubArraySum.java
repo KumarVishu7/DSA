@@ -5,10 +5,11 @@ public class MAxSubArraySum {
     public static void main(String[] args) {
         // int arr[]={-2,1,-3,4,-1,2,1,-5,4};
         int arr[]={2,3,-3,4,3};
-         //KadansAlgoSum(arr);
+         KadansAlgoSum(arr);
         // sum(arr);
         product(arr);
     }
+
      /*  // 1st technique is ->Simple Approach . time complexity is o(n)3
 
      public  static void sum(int arr[]){
@@ -33,7 +34,7 @@ public class MAxSubArraySum {
 
     // 2nd approach--> Kadane approach
 
-  /*  public static void KadansAlgoSum(int arr[]){
+    public static void KadansAlgoSum(int arr[]){
         int max=Integer.MIN_VALUE;
         int currentSum=0;
         for(int i=0;i<arr.length;i++){
@@ -46,7 +47,7 @@ public class MAxSubArraySum {
         }
         System.out.println("Maximum sum is :"+max);
 
-    }*/
+    }
 
     //maximum product of subArray using kadane algo
     static void product(int arr[]){

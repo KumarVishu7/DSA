@@ -19,7 +19,7 @@ public class FindIndex {
     }*/
 
     public static int find(int arr[],int value){
-       int index= Arrays.binarySearch(arr,value);
-        return (index < 0) ? -1 : index;
+      int index=Arrays.binarySearch(arr,value);
+      return (index<0)?-1:index;
     }
 }
